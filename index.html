@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganhafacil.bet - Clone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f0f0f;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .login-box, .deposit-box {
+            background: #1c1c1c;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px #000;
+            width: 300px;
+            margin: 10px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 8px;
+        }
+        button {
+            background: #00c853;
+            color: white;
+            cursor: pointer;
+        }
+        img {
+            margin-top: 20px;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>Entrar no Ganhafacil.bet</h2>
+        <input type="email" placeholder="E-mail">
+        <input type="password" placeholder="Senha">
+        <button>Entrar</button>
+    </div>
+
+    <div class="deposit-box">
+        <h3>Simulador de Depósito</h3>
+        <input id="valor" type="number" placeholder="Digite o valor (ex: 20)">
+        <button onclick="gerarQRCode()">Gerar QR Code</button>
+        <div id="qrDisplay"></div>
+    </div>
+
+    <script>
+        function gerarQRCode() {
+            const valor = document.getElementById("valor").value;
+            if (valor) {
+                document.getElementById("qrDisplay").innerHTML = `
+                    <p>Escaneie para simular depósito de R$${valor},00</p>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=chavepix%40email.com - R$${valor}" alt="QR Code Pix Fake">
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
